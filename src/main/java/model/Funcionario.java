@@ -1,21 +1,26 @@
-
 package model;
 
-/**
- *
- * @author Joseph Alexandre.
- */
-public class Funcionario extends Usuario{
+public class Funcionario extends Usuario {
+
     private String cod_empresa;
-    private String cargo;
+
+    public Funcionario(String nome, String cpf, String usuario, String senha, String cod_empresa, String cargo) {
+        super(nome, cpf, usuario, senha);
+        this.cod_empresa = cod_empresa;
+    }
+
+    public Funcionario(String usuario, String senha, String cod_empresa, String cargo) {
+        super(usuario, senha);
+        this.cod_empresa = cod_empresa;
+    }
 
     public Funcionario(String cod_empresa, String cargo) {
         this.cod_empresa = cod_empresa;
-        this.cargo = cargo;
-        this.isFuncionario = true;
     }
-    
-    
+
+    public Funcionario(){
+    }
+
     public String getCod_empresa() {
         return cod_empresa;
     }
@@ -24,31 +29,14 @@ public class Funcionario extends Usuario{
         this.cod_empresa = cod_empresa;
     }
 
-    public String getCargo() {
-        return cargo;
+    public Comanda criarComanda(Cliente cliente){
+        Comanda comanda = new Comanda(cliente);
+        return comanda;
     }
 
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
+    @Override
+    public String toString() {
+        return super.toString() + "\nCódigo da empresa: " + cod_empresa;
     }
 
-    public Login getLogin() {
-        return login;
-    }
-
-    public void setLogin(Login login) {
-        this.login = login;
-    }
-
-    public boolean getIsFuncionario() {
-        return isFuncionario;
-    }
-    
-    public static void main(String[] args) {
-        Funcionario f = new Funcionario("dsjdask", "dasjdas");
-        System.out.println(f.getIsFuncionario());
-    }
-    
-    
-    
 }

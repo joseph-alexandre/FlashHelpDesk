@@ -1,29 +1,42 @@
-
 package model;
 
-/**
- *
- * @author Usuario
- */
-public abstract class Usuario extends Pessoa{
-    protected Login login;
-    protected boolean isFuncionario;
+public abstract class Usuario extends Pessoa {
 
-    public Login getLogin() {
-        return login;
+    private String usuario, senha;
+
+    public Usuario(String nome, String cpf, String usuario, String senha) {
+        super(nome, cpf);
+        this.usuario = usuario;
+        this.senha = senha;
     }
 
-    public void setLogin(Login login) {
-        this.login = login;
+    public Usuario(String usuario, String senha) {
+        this.usuario = usuario;
+        this.senha = senha;
     }
 
-    public boolean getIsFuncionario() {
-        return isFuncionario;
+    public Usuario(){
+
     }
 
-    public void setIsFuncionario(boolean isFuncionario) {
-        this.isFuncionario = isFuncionario;
+    public String getUsuario() {
+        return usuario;
     }
-    
-    
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nUsuário: " + usuario;
+    }
 }

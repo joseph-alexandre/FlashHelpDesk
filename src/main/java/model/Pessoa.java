@@ -1,15 +1,18 @@
-
 package model;
 
-/**
- *
- * @author Joseph Alexandre.
- * 
- */
 public abstract class Pessoa {
-    private String nome;
-    private String cpf;
-    
+
+    private String nome, cpf;
+
+    public Pessoa(String nome, String cpf) {
+        this.nome = nome;
+        this.cpf = cpf;
+    }
+
+    public Pessoa() {
+    }
+
+
     public String getNome() {
         return nome;
     }
@@ -25,6 +28,9 @@ public abstract class Pessoa {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Nome: " + nome + "\nCPF: " + cpf;
+    }
 }

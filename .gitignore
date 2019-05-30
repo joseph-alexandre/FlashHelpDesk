@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+.gitignore
 /target/
 =======
 # Compiled class file
@@ -24,4 +24,6 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
->>>>>>> a293321b7f851eb06b7917574ec0226f5f9e661e
+
+# Intellij IDEA
+.idea/
