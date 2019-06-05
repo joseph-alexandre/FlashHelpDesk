@@ -27,3 +27,6 @@ hs_err_pid*
 
 # Intellij IDEA
 .idea/
+
+# Intellij Out Path
+/out/
