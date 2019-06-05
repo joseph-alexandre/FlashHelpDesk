@@ -42,7 +42,7 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return  "Itens: "+ produtos + ", " + "Total do pedido: " + getTotal() + ". Status do pedido: " + getStatus() + ".";
+        return  "Itens: "+ produtos + ". " + "Status do pedido: " + getStatus() + ".";
     }
 
 }

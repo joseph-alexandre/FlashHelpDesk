@@ -3,19 +3,22 @@ package model;
 public class Funcionario extends Usuario {
 
     private String cod_empresa;
-
-    public Funcionario(String nome, String cpf, String usuario, String senha, String cod_empresa, String cargo) {
+    private Comanda comanda;
+    public Funcionario(String nome, String cpf, String usuario, String senha, String cod_empresa, Comanda comanda) {
         super(nome, cpf, usuario, senha);
         this.cod_empresa = cod_empresa;
+        this.comanda = comanda;
     }
 
-    public Funcionario(String usuario, String senha, String cod_empresa, String cargo) {
+    public Funcionario(String usuario, String senha, String cod_empresa, Comanda comanda) {
         super(usuario, senha);
         this.cod_empresa = cod_empresa;
+        this.comanda = comanda;
     }
 
-    public Funcionario(String cod_empresa, String cargo) {
+    public Funcionario(String cod_empresa, Comanda comanda) {
         this.cod_empresa = cod_empresa;
+        this.comanda = comanda;
     }
 
     public Funcionario(){
@@ -29,8 +32,12 @@ public class Funcionario extends Usuario {
         this.cod_empresa = cod_empresa;
     }
 
+    public Comanda getComanda() {
+        return comanda;
+    }
+
     public Comanda criarComanda(Cliente cliente){
-        Comanda comanda = new Comanda(cliente);
+        comanda = new Comanda(cliente);
         return comanda;
     }
 
@@ -38,5 +45,4 @@ public class Funcionario extends Usuario {
     public String toString() {
         return super.toString() + "\nCódigo da empresa: " + cod_empresa;
     }
-
 }

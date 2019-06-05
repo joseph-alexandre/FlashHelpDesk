@@ -40,6 +40,14 @@ public class Comanda {
         this.statusPagamento = statusPagamento;
     }
 
+
+    @Override
+    public String toString() {
+        return "- Comanda - " +
+                "\nCliente:\n" + cliente + "\nTotal do pedido: " + cliente.getPedido().getTotal();
+
+    }
+
     public static void main(String[] args) {
 
     }

@@ -68,9 +68,9 @@ public class Cliente extends Usuario{
         cliente.adicionarNoPedido(produto1);
 
         Funcionario funcionario = new Funcionario();
-        Comanda comanda = funcionario.criarComanda(cliente);
+        funcionario.criarComanda(cliente);
 
-        System.out.println(comanda.getPedido());
+        System.out.println(funcionario.getComanda());
 
 
 
