@@ -1,7 +1,8 @@
-package model;
+package Model;
+
+import java.math.BigDecimal;
 
 public class Comanda {
-
     private Cliente cliente;
     private Pedido pedido;
     private StatusPagamento statusPagamento;
@@ -41,10 +42,11 @@ public class Comanda {
     }
 
 
+
     @Override
     public String toString() {
         return "- Comanda - " +
-                "\nCliente:\n" + cliente + "\nTotal do pedido: " + cliente.getPedido().getTotal();
+                "\nCliente:\n" + cliente + "\nTotal do pedido: " + cliente.getPedido().getTotal() + "\nStatus Pagamento: " + getStatusPagamento();
 
     }
 

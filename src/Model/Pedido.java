@@ -1,10 +1,11 @@
-package model;
+package Model;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
-
+    private int id;
     private ArrayList<Produto> produtos = new ArrayList<>();
     private StatusPedido status;
 
@@ -38,6 +39,14 @@ public class Pedido {
 
     public void setStatus(StatusPedido status) {
         this.status = status;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override

@@ -1,7 +1,7 @@
-package model;
+package Model;
 
 public class Funcionario extends Usuario {
-
+    private int id;
     private String cod_empresa;
     private Comanda comanda;
     public Funcionario(String nome, String cpf, String usuario, String senha, String cod_empresa, Comanda comanda) {
@@ -34,6 +34,14 @@ public class Funcionario extends Usuario {
 
     public Comanda getComanda() {
         return comanda;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Comanda criarComanda(Cliente cliente){

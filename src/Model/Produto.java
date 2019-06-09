@@ -1,7 +1,8 @@
-package model;
+package Model;
+
 
 public class Produto {
-
+    private int id;
     private String nome, cod_barras;
     private float preco;
 
@@ -31,6 +32,7 @@ public class Produto {
     }
 
     public float getPreco() {
+
         return preco;
     }
 
@@ -38,9 +40,17 @@ public class Produto {
         this.preco = preco;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
-        return "[Nome: " + nome + ", Código de barras: " + cod_barras + ", Preço: " + preco + "]";
+        return "[Nome: " + nome + ". Código de barras: " + cod_barras + ". Preço: " + preco + "]";
     }
 
 }
