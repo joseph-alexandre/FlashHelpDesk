@@ -1,9 +1,10 @@
-package View.Cliente.CadastroCliente;
+package View.Pizza.CadastroPizza;
 
 import Database.DAO.DAOPersistente.DAOCliente;
+import Database.DAO.DAOPersistente.DAOPizza;
 import Model.Cliente;
+import Model.Pizza;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,13 +13,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class CadastroClienteController {
+public class CadastroPizzaController {
+
 
     @FXML
     private AnchorPane anchorPane;
@@ -27,19 +28,13 @@ public class CadastroClienteController {
     private Text LabelCadastrarCliente;
 
     @FXML
-    private JFXTextField JFXTextFieldCPF;
-
-    @FXML
     private JFXButton ButtonCadastrar;
 
     @FXML
-    private JFXTextField JFXTextFieldNome;
+    private JFXTextField JFXTextFieldSabor;
 
     @FXML
-    private JFXTextField JFXTextFieldTelefone;
-
-    @FXML
-    private JFXTextField JFXTextFieldEndereco;
+    private JFXTextField JFXTextFieldPreco;
 
     @FXML
     private JFXButton ButtonVoltar;
@@ -55,13 +50,12 @@ public class CadastroClienteController {
 
     @FXML
     private void acaoBotaoCadastrar(ActionEvent event) throws IOException{
-        Cliente cliente = new Cliente();
-        DAOCliente daoCliente = new DAOCliente();
-        cliente.setNome(JFXTextFieldNome.getText());
-        cliente.setCpf(JFXTextFieldCPF.getText());
-        cliente.setEndereco(JFXTextFieldEndereco.getText());
-        cliente.setTelefone(JFXTextFieldTelefone.getText());
-        daoCliente.adicionar(cliente);
+        Pizza pizza = new Pizza();
+        DAOPizza daoPizza = new DAOPizza();
+        pizza.setSabor(JFXTextFieldSabor.getText());
+        pizza.setPreco(Float.parseFloat(JFXTextFieldPreco.getText()));
+        daoPizza.adicionar(pizza);
+        System.out.println("Pizza adicionada com sucesso!");
     }
 
 

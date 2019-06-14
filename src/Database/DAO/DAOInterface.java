@@ -6,12 +6,14 @@ public interface DAOInterface<T>  {
 
     public boolean adicionar(T thing);
 
-    public T pegarPorId(int id);
+    public T pegarPeloNome(String nome);
 
-    public boolean remover(int id);
+    public boolean removerPeloNome(String nome);
 
     public boolean alterar(T thing);
 
     public List<T> listarTodos();
+
+
 
 }

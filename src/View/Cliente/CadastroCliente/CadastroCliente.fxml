@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,22 +8,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #346dc9;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #346dc9;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Cliente.CadastroCliente.CadastroClienteController">
    <children>
-      <Pane layoutX="144.0" layoutY="43.0" prefHeight="60.0" prefWidth="312.0" style="-fx-background-color: white;">
+      <Pane layoutX="131.0" layoutY="43.0" prefHeight="60.0" prefWidth="325.0" style="-fx-background-color: white;">
          <children>
-            <Text fill="#346dc9" layoutX="90.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro" wrappingWidth="302.13671875">
+            <Text fx:id="LabelCadastrarCliente" fill="#346dc9" layoutX="50.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastrar cliente" wrappingWidth="302.13671875">
                <font>
                   <Font name="Humnst777 Cn BT Bold" size="31.0" />
                </font>
             </Text>
          </children>
       </Pane>
-      <Pane layoutX="144.0" layoutY="136.0" prefHeight="299.0" prefWidth="312.0" style="-fx-background-color: white;">
+      <Pane layoutX="131.0" layoutY="136.0" prefHeight="299.0" prefWidth="325.0" style="-fx-background-color: white;">
          <children>
-            <JFXTextField focusColor="#0468ff" labelFloat="true" layoutX="19.0" layoutY="103.0" prefHeight="36.0" prefWidth="127.0" promptText="Usuário" unFocusColor="BLACK" />
-            <JFXPasswordField focusColor="#0468ff" labelFloat="true" layoutX="19.0" layoutY="161.0" prefHeight="25.0" prefWidth="275.0" promptText="Senha" />
-            <JFXButton buttonType="RAISED" layoutX="87.0" layoutY="224.0" prefHeight="43.0" prefWidth="139.0" style="-fx-background-color: #2e7bf7;" text="Cadastrar" textFill="WHITE">
+            <JFXTextField fx:id="JFXTextFieldCPF" focusColor="#0468ff" labelFloat="true" layoutX="19.0" layoutY="103.0" prefHeight="36.0" prefWidth="127.0" promptText="CPF" unFocusColor="BLACK" />
+            <JFXButton fx:id="ButtonCadastrar" buttonType="RAISED" layoutX="13.0" layoutY="226.0" onAction="#acaoBotaoCadastrar" prefHeight="43.0" prefWidth="139.0" style="-fx-background-color: #2e7bf7;" text="Cadastrar" textFill="WHITE">
                <font>
                   <Font name="Book Antiqua Bold" size="18.0" />
                </font>
@@ -32,8 +30,17 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXTextField focusColor="#0468ff" labelFloat="true" layoutX="19.0" layoutY="38.0" prefHeight="36.0" prefWidth="275.0" promptText="Nome" unFocusColor="BLACK" />
-            <JFXTextField focusColor="#0468ff" labelFloat="true" layoutX="157.0" layoutY="103.0" prefHeight="36.0" prefWidth="139.0" promptText="CPF" unFocusColor="BLACK" />
+            <JFXTextField fx:id="JFXTextFieldNome" focusColor="#0468ff" labelFloat="true" layoutX="19.0" layoutY="38.0" prefHeight="36.0" prefWidth="275.0" promptText="Nome" unFocusColor="BLACK" />
+            <JFXTextField fx:id="JFXTextFieldTelefone" focusColor="#0468ff" labelFloat="true" layoutX="157.0" layoutY="103.0" prefHeight="36.0" prefWidth="139.0" promptText="Telefone" unFocusColor="BLACK" />
+            <JFXTextField fx:id="JFXTextFieldEndereco" focusColor="#0468ff" labelFloat="true" layoutX="20.0" layoutY="160.0" prefHeight="36.0" prefWidth="275.0" promptText="Endereço" unFocusColor="BLACK" />
+            <JFXButton fx:id="ButtonVoltar" buttonType="RAISED" layoutX="172.0" layoutY="226.0" onAction="#acaoBotaoVoltar" prefHeight="43.0" prefWidth="139.0" style="-fx-background-color: #2e7bf7;" text="Voltar" textFill="WHITE">
+               <font>
+                  <Font name="Book Antiqua Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
          </children>
       </Pane>
    </children>

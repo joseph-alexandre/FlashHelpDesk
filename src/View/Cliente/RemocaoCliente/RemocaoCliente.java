@@ -1,4 +1,4 @@
-package View.Cliente.FormularioPedido;
+package View.Cliente.RemocaoCliente;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,13 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class FormularioPedido extends Application {
+public class RemocaoCliente extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("FormularioPedido.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("RemocaoCliente.fxml"));
         primaryStage.setTitle("LunchDesk");
         primaryStage.setScene(new Scene(root, 600, 500));
+//        primaryStage.getIcons().add(new Image("file:resources/icons/burguer.png"));
         primaryStage.show();
     }
 

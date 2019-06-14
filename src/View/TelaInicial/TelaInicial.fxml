@@ -4,31 +4,148 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #346dc9;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TelaInicial.TelaInicialController">
+<AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="802.0" style="-fx-background-color: #346dc9;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TelaInicial.TelaInicialController">
    <children>
-      <Label fx:id="LabelBemVindo" layoutX="177.0" layoutY="106.0" prefHeight="50.0" prefWidth="208.0" text="Bem-vindo." textFill="WHITE">
+      <Label fx:id="LabelBemVindo" layoutX="225.0" layoutY="61.0" prefHeight="50.0" prefWidth="208.0" text="Bem-vindo." textFill="WHITE">
          <font>
             <Font name="Humnst777 Cn BT Bold" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="LabelFacaSeuLogin" layoutX="177.0" layoutY="165.0" text="Faça seu login." textFill="WHITE">
+      <Label fx:id="LabelFacaSeuLogin" layoutX="225.0" layoutY="126.0" text="Escolha uma operação." textFill="WHITE">
          <font>
             <Font name="Humnst777 Cn BT Bold" size="40.0" />
          </font>
       </Label>
-      <JFXButton fx:id="ButtonCliente" layoutX="345.0" layoutY="265.0" onAction="#acaoBotaoCliente" prefHeight="75.0" prefWidth="140.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Cliente" textFill="WHITE">
+      <JFXButton fx:id="ButtonAdicionarPizza" layoutX="28.0" layoutY="324.0" onAction="#acaoBotaoCadastrarPizza" prefHeight="75.0" prefWidth="93.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Cadastrar" textFill="WHITE">
          <font>
-            <Font name="Humnst777 Cn BT Bold" size="21.0" />
+            <Font name="Humnst777 Cn BT Bold" size="17.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton fx:id="ButtonCliente1" layoutX="127.0" layoutY="265.0" onAction="#acaoBotaoCliente" prefHeight="75.0" prefWidth="140.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Funcionário" textFill="WHITE">
+      <Pane layoutX="28.0" layoutY="250.0" prefHeight="56.0" prefWidth="197.0" style="-fx-background-color: white;">
+         <children>
+            <Text fx:id="LabelPizza" fill="#346dc9" layoutX="63.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pizza" wrappingWidth="92.98583984375">
+               <font>
+                  <Font name="Humnst777 Cn BT Bold" size="33.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <JFXButton fx:id="ButtonExcluirPizza" layoutX="132.0" layoutY="324.0" onAction="#acaoBotaoRemoverPizza" prefHeight="75.0" prefWidth="93.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Excluir" textFill="WHITE">
          <font>
-            <Font name="Humnst777 Cn BT Bold" size="21.0" />
+            <Font name="Humnst777 Cn BT Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="ButtonAlterarPizza" layoutX="28.0" layoutY="411.0" onAction="#acaoBotaoAlterarPizza" prefHeight="75.0" prefWidth="93.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Alterar" textFill="WHITE">
+         <font>
+            <Font name="Humnst777 Cn BT Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="ButtonListarPizza" layoutX="132.0" layoutY="411.0" onAction="#acaoBotaoListarPizza" prefHeight="75.0" prefWidth="93.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Listar" textFill="WHITE">
+         <font>
+            <Font name="Humnst777 Cn BT Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Pane layoutX="300.0" layoutY="250.0" prefHeight="56.0" prefWidth="197.0" style="-fx-background-color: white;">
+         <children>
+            <Text fx:id="LabelCliente" fill="#346dc9" layoutX="52.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cliente" wrappingWidth="92.98583984375">
+               <font>
+                  <Font name="Humnst777 Cn BT Bold" size="32.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <JFXButton fx:id="ButtonAdicionarCliente" layoutX="300.0" layoutY="324.0" onAction="#acaoBotaoCadastrarCliente" prefHeight="75.0" prefWidth="93.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Cadastrar" textFill="WHITE">
+         <font>
+            <Font name="Humnst777 Cn BT Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="ButtonExcluirCliente" layoutX="404.0" layoutY="324.0" onAction="#acaoBotaoRemoverCliente" prefHeight="75.0" prefWidth="93.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Excluir" textFill="WHITE">
+         <font>
+            <Font name="Humnst777 Cn BT Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="ButtonAlterarCliente" layoutX="300.0" layoutY="411.0" onAction="#acaoBotaoAlterarCliente" prefHeight="75.0" prefWidth="93.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Alterar" textFill="WHITE">
+         <font>
+            <Font name="Humnst777 Cn BT Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="ButtonListarCliente" layoutX="404.0" layoutY="411.0" onAction="#acaoBotaoListarCliente" prefHeight="75.0" prefWidth="93.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Listar" textFill="WHITE">
+         <font>
+            <Font name="Humnst777 Cn BT Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Pane layoutX="572.0" layoutY="250.0" prefHeight="56.0" prefWidth="197.0" style="-fx-background-color: white;">
+         <children>
+            <Text fx:id="LabelPedido" fill="#346dc9" layoutX="52.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pedido" wrappingWidth="92.98583984375">
+               <font>
+                  <Font name="Humnst777 Cn BT Bold" size="32.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <JFXButton fx:id="ButtonAdicionarPedido" layoutX="572.0" layoutY="324.0" prefHeight="75.0" prefWidth="93.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Cadastrar" textFill="WHITE">
+         <font>
+            <Font name="Humnst777 Cn BT Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="ButtonExcluirPedido" layoutX="676.0" layoutY="324.0" prefHeight="75.0" prefWidth="93.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Excluir" textFill="WHITE">
+         <font>
+            <Font name="Humnst777 Cn BT Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="ButtonAlterarPedido" layoutX="572.0" layoutY="411.0" prefHeight="75.0" prefWidth="93.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Alterar" textFill="WHITE">
+         <font>
+            <Font name="Humnst777 Cn BT Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="ButtonListarPedido" layoutX="676.0" layoutY="411.0" prefHeight="75.0" prefWidth="93.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Listar" textFill="WHITE">
+         <font>
+            <Font name="Humnst777 Cn BT Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="ButtonSair" layoutX="658.0" layoutY="14.0" prefHeight="56.0" prefWidth="129.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Sair" textFill="WHITE">
+         <font>
+            <Font name="Humnst777 Cn BT Bold" size="17.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />

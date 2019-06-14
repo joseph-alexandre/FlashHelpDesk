@@ -4,7 +4,6 @@ import Database.Conexao.ConnectionFactory;
 import Database.DAO.DAOInterface;
 import Model.Cliente;
 import Model.Funcionario;
-import Model.Mesa;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,13 +19,13 @@ public class DAOFuncionario implements DAOInterface<Funcionario>  {
         Connection conexao = ConnectionFactory.obterConexao();
         int quantidade = 1;
         try {
-            String sql = "INSERT INTO funcionario (nome, cpf, usuario, senha, cod_empresa) VALUES (?,?,?,?,?)";
+            String sql = "INSERT INTO funcionario (nome, cpf, usuario, senha, cod_matricula) VALUES (?,?,?,?,?)";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setString(quantidade++, funcionario.getNome());
             preparedStatement.setString(quantidade++, funcionario.getCpf());
             preparedStatement.setString(quantidade++, funcionario.getUsuario());
             preparedStatement.setString(quantidade++, funcionario.getSenha());
-            preparedStatement.setString(quantidade++, funcionario.getCod_empresa());
+            preparedStatement.setString(quantidade++, funcionario.getCod_matricula());
             return preparedStatement.executeUpdate() == 1;
 
         } catch (SQLException e) {
@@ -39,13 +38,13 @@ public class DAOFuncionario implements DAOInterface<Funcionario>  {
     }
 
     @Override
-    public Funcionario pegarPorId(int id) {
+    public Funcionario pegarPeloNome(String nome) {
 
         Connection conexao = ConnectionFactory.obterConexao();
-        String sql = "SELECT nome, cpf, usuario, senha, cod_empresa FROM funcionario WHERE ROWID = ?";
+        String sql = "SELECT nome, cpf, usuario, senha, cod_matricula FROM funcionario WHERE nome = ?";
         try {
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, nome);
             preparedStatement.execute();
             ResultSet rs = preparedStatement.getResultSet();
             while (rs.next()) {
@@ -54,7 +53,7 @@ public class DAOFuncionario implements DAOInterface<Funcionario>  {
                 funcionario.setCpf(rs.getString("cpf"));
                 funcionario.setUsuario(rs.getString("usuario"));
                 funcionario.setSenha(rs.getString("senha"));
-                funcionario.setCod_empresa(rs.getString("cod_empresa"));
+                funcionario.setCod_matricula(rs.getString("cod_matricula"));
                 return funcionario;
             }
 
@@ -67,14 +66,14 @@ public class DAOFuncionario implements DAOInterface<Funcionario>  {
     }
 
     @Override
-    public boolean remover(int id) {
+    public boolean removerPeloNome(String nome) {
 
         Connection conexao = ConnectionFactory.obterConexao();
         Funcionario fun = new Funcionario();
-        String sql = "DELETE FROM funcionario WHERE ROWID = ?";
+        String sql = "DELETE FROM funcionario WHERE nome = ?";
         try {
             PreparedStatement ps = conexao.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setString(1, nome);
             return ps.executeUpdate() == 1;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -89,13 +88,13 @@ public class DAOFuncionario implements DAOInterface<Funcionario>  {
     public boolean alterar(Funcionario funcionario) {
 
         Connection conexao = ConnectionFactory.obterConexao();
-        String sql = "UPDATE funcionario SET nome = ?, usuario = ?, senha = ? WHERE cod_empresa = ?";
+        String sql = "UPDATE funcionario SET nome = ?, usuario = ?, senha = ? WHERE cod_matricula = ?";
         try{
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setString(1, funcionario.getNome());
             preparedStatement.setString(2, funcionario.getUsuario());
             preparedStatement.setString(3, funcionario.getSenha());
-            preparedStatement.setString(4, funcionario.getCod_empresa());
+            preparedStatement.setString(4, funcionario.getCod_matricula());
             return preparedStatement.executeUpdate() == 1;
         } catch (SQLException e){
             e.printStackTrace();
@@ -110,7 +109,7 @@ public class DAOFuncionario implements DAOInterface<Funcionario>  {
 
         List<Funcionario> funcionarios = new ArrayList<>();
         Connection conexao = ConnectionFactory.obterConexao();
-        String sql = "SELECT nome, cpf, usuario, senha, cod_empresa FROM funcionario";
+        String sql = "SELECT nome, cpf, usuario, senha, cod_matricula FROM funcionario";
         try {
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.execute();
@@ -121,7 +120,7 @@ public class DAOFuncionario implements DAOInterface<Funcionario>  {
                 funcionario.setCpf(rs.getString("cpf"));
                 funcionario.setUsuario(rs.getString("usuario"));
                 funcionario.setSenha(rs.getString("senha"));
-                funcionario.setCod_empresa(rs.getString("cod_empresa"));
+                funcionario.setCod_matricula(rs.getString("cod_matricula"));
                 funcionarios.add(funcionario);
             }
 

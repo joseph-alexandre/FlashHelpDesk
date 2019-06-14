@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="751.0" style="-fx-background-color: #346dc9;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Pizza.ListarPizza.ListarPizzaController">
+   <children>
+      <Pane layoutX="207.0" layoutY="117.0" prefHeight="60.0" prefWidth="325.0" style="-fx-background-color: white;">
+         <children>
+            <Text fx:id="LabelListarClientes" fill="#346dc9" layoutX="79.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Listar Pizzas" wrappingWidth="182.13671875">
+               <font>
+                  <Font name="Humnst777 Cn BT Bold" size="31.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="133.0" layoutY="209.0" prefHeight="409.0" prefWidth="486.0" style="-fx-background-color: white;">
+         <children>
+            <JFXButton fx:id="ButtonVoltar" buttonType="RAISED" layoutX="172.0" layoutY="352.0" onAction="#acaoBotaoVoltar" prefHeight="43.0" prefWidth="139.0" style="-fx-background-color: #2e7bf7;" text="Voltar" textFill="WHITE">
+               <font>
+                  <Font name="Book Antiqua Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXTreeTableView fx:id="JFXTreeTableViewPizzas" layoutX="18.0" layoutY="14.0" prefHeight="315.0" prefWidth="447.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -2,25 +2,23 @@ package Database.DAO.DAOPersistente;
 
 import Database.Conexao.ConnectionFactory;
 import Database.DAO.DAOInterface;
-import Model.Produto;
+import Model.Pizza;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DAOProduto implements DAOInterface<Produto> {
+public class DAOPizza implements DAOInterface<Pizza> {
 
     @Override
-    public boolean adicionar(Produto produto) {
+    public boolean adicionar(Pizza pizza) {
         Connection conexao = ConnectionFactory.obterConexao();
         int quantidade = 1;
         try {
-            String sql = "INSERT INTO produto (nome, cod_barras, preco) VALUES (?,?,?)";
+            String sql = "INSERT INTO pizza (sabor, preco) VALUES (?,?)";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
-            preparedStatement.setString(quantidade++, produto.getNome());
-            preparedStatement.setString(quantidade++, produto.getCod_barras());
-            preparedStatement.setString(quantidade++, String.valueOf(produto.getPreco()));
-
+            preparedStatement.setString(quantidade++, pizza.getSabor());
+            preparedStatement.setString(quantidade++, String.valueOf(pizza.getPreco()));
             return preparedStatement.executeUpdate() == 1;
 
         } catch (SQLException e) {
@@ -32,20 +30,20 @@ public class DAOProduto implements DAOInterface<Produto> {
     }
 
     @Override
-    public Produto pegarPorId(int id) {
+    public Pizza pegarPeloNome(String nome) {
         Connection conexao = ConnectionFactory.obterConexao();
-        String sql = "SELECT nome, cod_barras, preco FROM produto WHERE ROWID = ?";
+        String sql = "SELECT sabor, preco, id_pizza FROM pizza WHERE sabor = ?";
         try {
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, nome);
             preparedStatement.execute();
             ResultSet rs = preparedStatement.getResultSet();
             while (rs.next()) {
-                Produto produto = new Produto();
-                produto.setNome(rs.getString("nome"));
-                produto.setCod_barras(rs.getString("cod_barras"));
-                produto.setPreco(Float.parseFloat(rs.getString("preco")));
-                return produto;
+                Pizza pizza = new Pizza();
+                pizza.setSabor(rs.getString("sabor"));
+                pizza.setPreco(Float.parseFloat(rs.getString("preco")));
+                pizza.setId(rs.getInt("id_pizza"));
+                return pizza;
             }
 
         } catch (SQLException e) {
@@ -57,14 +55,14 @@ public class DAOProduto implements DAOInterface<Produto> {
     }
 
     @Override
-    public boolean remover(int id) {
+    public boolean removerPeloNome(String nome) {
 
         Connection conexao = ConnectionFactory.obterConexao();
-        Produto produto = new Produto();
-        String sql = "DELETE FROM produto WHERE ROWID = ?";
+        Pizza produto = new Pizza();
+        String sql = "DELETE FROM pizza WHERE sabor = ?";
         try {
             PreparedStatement ps = conexao.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setString(1, nome);
             return ps.executeUpdate() == 1;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -76,14 +74,14 @@ public class DAOProduto implements DAOInterface<Produto> {
     }
 
     @Override
-    public boolean alterar(Produto produto) {
+    public boolean alterar(Pizza pizza) {
         Connection conexao = ConnectionFactory.obterConexao();
-        String sql = "UPDATE produto SET nome = ?, preco = ? WHERE cod_barras = ?";
+        String sql = "UPDATE pizza SET sabor = ?, preco = ? WHERE id_pizza = ?";
         try{
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
-            preparedStatement.setString(1, produto.getNome());
-            preparedStatement.setString(2, String.valueOf(produto.getPreco()));
-            preparedStatement.setString(3, produto.getCod_barras());
+            preparedStatement.setString(1, pizza.getSabor());
+            preparedStatement.setString(2, String.valueOf(pizza.getPreco()));
+            preparedStatement.setInt(3, pizza.getId());
             return preparedStatement.executeUpdate() == 1;
         } catch (SQLException e){
             e.printStackTrace();
@@ -95,20 +93,20 @@ public class DAOProduto implements DAOInterface<Produto> {
     }
 
     @Override
-    public List<Produto> listarTodos() {
-        List<Produto> produtos = new ArrayList<>();
+    public List<Pizza> listarTodos() {
+        List<Pizza> pizzas = new ArrayList<>();
         Connection conexao = ConnectionFactory.obterConexao();
-        String sql = "SELECT nome, cod_barras, preco FROM produto";
+        String sql = "SELECT id_pizza, sabor, preco FROM pizza";
         try {
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.execute();
             ResultSet rs = preparedStatement.getResultSet();
             while (rs.next()) {
-                Produto produto = new Produto();
-                produto.setNome(rs.getString("nome"));
-                produto.setCod_barras(rs.getString("cod_barras"));
-                produto.setPreco(Float.parseFloat(rs.getString("preco")));
-                produtos.add(produto);
+                Pizza pizza = new Pizza();
+                pizza.setId(rs.getInt("id_pizza"));
+                pizza.setSabor(rs.getString("sabor"));
+                pizza.setPreco(Float.parseFloat(rs.getString("preco")));
+                pizzas.add(pizza);
             }
 
         } catch (SQLException e) {
@@ -116,6 +114,6 @@ public class DAOProduto implements DAOInterface<Produto> {
         } finally {
             ConnectionFactory.fecharConexao();
         }
-        return produtos;
+        return pizzas;
     }
 }

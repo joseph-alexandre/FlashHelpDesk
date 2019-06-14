@@ -12,7 +12,6 @@ public abstract class Pessoa {
     public Pessoa() {
     }
 
-
     public String getNome() {
         return nome;
     }

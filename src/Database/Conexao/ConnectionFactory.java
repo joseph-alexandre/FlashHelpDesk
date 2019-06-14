@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 
-    private static String USER_ROOT = System.getProperty("user.home");
-    private static String HOST = "jdbc:sqlite:" + USER_ROOT +"\\Desktop\\Workspace\\LunchDesk\\resources\\database\\LunchDesk.db";
+    private static String USER_ROOT = System.getProperty("user.dir");
+    private static String HOST = "jdbc:sqlite:" + USER_ROOT +"\\resources\\database\\PizzaDesk.db";
     private static Connection conexao;
 
 

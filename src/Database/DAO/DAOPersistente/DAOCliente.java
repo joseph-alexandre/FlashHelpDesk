@@ -3,7 +3,6 @@ package Database.DAO.DAOPersistente;
 import Database.Conexao.ConnectionFactory;
 import Database.DAO.DAOInterface;
 import Model.Cliente;
-import Model.Mesa;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,12 +19,12 @@ public class DAOCliente implements DAOInterface<Cliente> {
         Connection conexao = ConnectionFactory.obterConexao();
         int quantidade = 1;
         try {
-            String sql = "INSERT INTO cliente (nome, cpf, usuario, senha) VALUES (?,?,?,?)";
+            String sql = "INSERT INTO cliente (nome, cpf, endereco, telefone) VALUES (?,?,?,?)";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setString(quantidade++, cliente.getNome());
             preparedStatement.setString(quantidade++, cliente.getCpf());
-            preparedStatement.setString(quantidade++, cliente.getUsuario());
-            preparedStatement.setString(quantidade++, cliente.getSenha());
+            preparedStatement.setString(quantidade++, cliente.getEndereco());
+            preparedStatement.setString(quantidade++, cliente.getTelefone());
             return preparedStatement.executeUpdate() == 1;
 
         } catch (SQLException e) {
@@ -35,44 +34,19 @@ public class DAOCliente implements DAOInterface<Cliente> {
         }
         return false;
 
-    }
+   }
+
+
 
     @Override
-    public Cliente pegarPorId(int id) {
-        Connection conexao = ConnectionFactory.obterConexao();
-
-        String sql = "SELECT nome, cpf, usuario, senha FROM cliente WHERE ROWID = ?";
-        try {
-            PreparedStatement preparedStatement = conexao.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
-            preparedStatement.execute();
-            ResultSet rs = preparedStatement.getResultSet();
-            while (rs.next()) {
-                Cliente cliente = new Cliente();
-                cliente.setNome(rs.getString("nome"));
-                cliente.setCpf(rs.getString("cpf"));
-                cliente.setUsuario(rs.getString("usuario"));
-                cliente.setSenha(rs.getString("senha"));
-                return cliente;
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            ConnectionFactory.fecharConexao();
-        }
-        return null;
-    }
-
-    @Override
-    public boolean remover(int id) {
+    public boolean removerPeloNome(String nome) {
 
         Connection conexao = ConnectionFactory.obterConexao();
         Cliente cliente = new Cliente();
-        String sql = "DELETE FROM cliente WHERE ROWID = ?";
+        String sql = "DELETE FROM cliente WHERE nome = ?";
         try {
             PreparedStatement ps = conexao.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setString(1, nome);
             return ps.executeUpdate() == 1;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -87,12 +61,12 @@ public class DAOCliente implements DAOInterface<Cliente> {
     public boolean alterar(Cliente cliente) {
 
         Connection conexao = ConnectionFactory.obterConexao();
-        String sql = "UPDATE cliente SET nome = ?, usuario = ?, senha = ? WHERE cpf = ?";
+        String sql = "UPDATE cliente SET nome = ?, endereco = ?, telefone = ? WHERE cpf = ?";
         try{
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setString(1, cliente.getNome());
-            preparedStatement.setString(2, cliente.getUsuario());
-            preparedStatement.setString(3, cliente.getSenha());
+            preparedStatement.setString(2, cliente.getEndereco());
+            preparedStatement.setString(3, cliente.getTelefone());
             preparedStatement.setString(4, cliente.getCpf());
             return preparedStatement.executeUpdate() == 1;
         } catch (SQLException e){
@@ -108,7 +82,7 @@ public class DAOCliente implements DAOInterface<Cliente> {
 
         List<Cliente> clientes = new ArrayList<>();
         Connection conexao = ConnectionFactory.obterConexao();
-        String sql = "SELECT nome, cpf, usuario, senha FROM cliente";
+        String sql = "SELECT nome, cpf, endereco, telefone FROM cliente";
         try {
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.execute();
@@ -117,8 +91,8 @@ public class DAOCliente implements DAOInterface<Cliente> {
                 Cliente cliente = new Cliente();
                 cliente.setNome(rs.getString("nome"));
                 cliente.setCpf(rs.getString("cpf"));
-                cliente.setUsuario(rs.getString("usuario"));
-                cliente.setSenha(rs.getString("senha"));
+                cliente.setEndereco(rs.getString("endereco"));
+                cliente.setTelefone(rs.getString("telefone"));
                 clientes.add(cliente);
             }
 
@@ -128,6 +102,32 @@ public class DAOCliente implements DAOInterface<Cliente> {
             ConnectionFactory.fecharConexao();
         }
         return clientes;
+    }
+
+    @Override
+    public Cliente pegarPeloNome(String nome){
+        Connection conexao = ConnectionFactory.obterConexao();
+        String sql = "SELECT nome, cpf, endereco, telefone FROM cliente WHERE nome = ?";
+        try {
+            PreparedStatement preparedStatement = conexao.prepareStatement(sql);
+            preparedStatement.setString(1, nome);
+            preparedStatement.execute();
+            ResultSet rs = preparedStatement.getResultSet();
+            while (rs.next()) {
+                Cliente cliente = new Cliente();
+                cliente.setNome(rs.getString("nome"));
+                cliente.setCpf(rs.getString("cpf"));
+                cliente.setEndereco(rs.getString("endereco"));
+                cliente.setTelefone(rs.getString("telefone"));
+                return cliente;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            ConnectionFactory.fecharConexao();
+        }
+        return null;
     }
 
 }

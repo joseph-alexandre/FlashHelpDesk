@@ -1,57 +1,75 @@
 package Model;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
-    private int id;
-    private ArrayList<Produto> produtos = new ArrayList<>();
-    private StatusPedido status;
 
-    public Pedido(ArrayList<Produto> produtos, StatusPedido status) {
-        this.produtos = produtos;
-        this.status = status;
+    private List<Pizza> pizzas;
+    private float valorTotal;
+    private Cliente cliente;
+
+    public Pedido(List<Pizza> pizzas, Cliente cliente) {
+        this.pizzas = pizzas;
+        this.cliente = cliente;
     }
 
     public Pedido() {
     }
 
-    public List<Produto> getProdutos() {
-        return this.produtos;
+    public List<Pizza> getPizzas() {
+        return pizzas;
     }
 
-    public void addProdutos(Produto produto) {
-            produtos.add(produto);
+    public void setPizzas(List<Pizza> pizzas) {
+        this.pizzas = pizzas;
     }
 
-    public float getTotal() {
-        float total = 0;
-        for (Produto produto: this.produtos){
-            total += produto.getPreco();
+    public float getValorTotal() {
+        valorTotal = calcularValorTotal();
+        return valorTotal;
+    }
+
+    private float calcularValorTotal() {
+        float valor = 0;
+        for (Pizza pizza: pizzas){
+            valor += pizza.getPreco();
         }
-        return total;
+        return valor;
     }
 
-    public StatusPedido getStatus() {
-        return status;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setStatus(StatusPedido status) {
-        this.status = status;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     @Override
     public String toString() {
-        return  "Itens: "+ produtos + ". " + "Status do pedido: " + getStatus() + ".";
+        return "Pedido: " +
+                "\nPizza(s): " + pizzas +
+                "\nValorTotal: " + getValorTotal() + "\nPedido efetuado por " + cliente.getNome() + " de CPF: " + cliente.getCpf();
     }
 
+    public static void main(String[] args) {
+
+
+        Cliente cliente = new Cliente();
+        cliente.setNome("John");
+        cliente.setCpf("23923230-322323");
+        cliente.setTelefone("843034340");
+        cliente.setEndereco("Rua das palmeiras");
+
+        ArrayList<Pizza> pizzas = new ArrayList<>();
+        pizzas.add(new Pizza("Frango", 35f));
+        pizzas.add(new Pizza("Calabresa", 35f));
+
+        Pedido pedido = new Pedido();
+        pedido.setCliente(cliente);
+        pedido.setPizzas(pizzas);
+        System.out.println(pedido);
+
+    }
 }

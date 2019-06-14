@@ -13,7 +13,7 @@ public class TelaInicial extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("TelaInicial.fxml"));
         primaryStage.setTitle("LunchDesk");
-        primaryStage.setScene(new Scene(root, 600, 500));
+        primaryStage.setScene(new Scene(root, 800, 500));
         primaryStage.getIcons().add(new Image("file:resources/icons/burguer.png"));
         primaryStage.show();
     }
