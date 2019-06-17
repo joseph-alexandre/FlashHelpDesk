@@ -1,8 +1,6 @@
 package View.Pizza.CadastroPizza;
 
-import Database.DAO.DAOPersistente.DAOCliente;
-import Database.DAO.DAOPersistente.DAOPizza;
-import Model.Cliente;
+import Database.DAO.DAOPersistente.DAOPersistentePizza;
 import Model.Pizza;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -51,7 +49,7 @@ public class CadastroPizzaController {
     @FXML
     private void acaoBotaoCadastrar(ActionEvent event) throws IOException{
         Pizza pizza = new Pizza();
-        DAOPizza daoPizza = new DAOPizza();
+        DAOPersistentePizza daoPizza = new DAOPersistentePizza();
         pizza.setSabor(JFXTextFieldSabor.getText());
         pizza.setPreco(Float.parseFloat(JFXTextFieldPreco.getText()));
         daoPizza.adicionar(pizza);

@@ -1,7 +1,7 @@
 package View.Cliente.ListarClientes;
 
 import Database.Conexao.ConnectionFactory;
-import Database.DAO.DAOPersistente.DAOCliente;
+import Database.DAO.DAOPersistente.DAOPersistenteCliente;
 import Util.TreeTableView.ClientePojo;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
@@ -59,7 +59,7 @@ public class ListarClienteController implements Initializable {
 
     private ObservableList<ClientePojo> observableList;
 
-    private DAOCliente daoCliente = new DAOCliente();
+    private DAOPersistenteCliente daoCliente = new DAOPersistenteCliente();
 
 
     @Override

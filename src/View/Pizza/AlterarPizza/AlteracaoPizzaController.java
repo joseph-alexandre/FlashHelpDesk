@@ -1,8 +1,6 @@
 package View.Pizza.AlterarPizza;
 
-import Database.DAO.DAOPersistente.DAOCliente;
-import Database.DAO.DAOPersistente.DAOPizza;
-import Model.Cliente;
+import Database.DAO.DAOPersistente.DAOPersistentePizza;
 import Model.Pizza;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -63,7 +61,7 @@ public class AlteracaoPizzaController implements Initializable {
 
     @FXML
     private void carregarComboBox(){
-        DAOPizza daoPizza = new DAOPizza();
+        DAOPersistentePizza daoPizza = new DAOPersistentePizza();
         for (Pizza pizza : daoPizza.listarTodos()){
             JFXComboBoxPizza.getItems().addAll(pizza.getSabor());
         }
@@ -73,7 +71,7 @@ public class AlteracaoPizzaController implements Initializable {
 
     @FXML
     private void pegarPizza(){
-        DAOPizza daoPizza = new DAOPizza();
+        DAOPersistentePizza daoPizza = new DAOPersistentePizza();
         Pizza pizza = daoPizza.pegarPeloNome(String.valueOf(JFXComboBoxPizza.getSelectionModel().getSelectedItem()));
         JFXTextFieldSabor.setText(pizza.getSabor());
         JFXTextFieldPreco.setText(String.valueOf(pizza.getPreco()));
@@ -81,7 +79,7 @@ public class AlteracaoPizzaController implements Initializable {
 
     @FXML
     private void acaoBotaoAlterarPizza(){
-        DAOPizza daoPizza = new DAOPizza();
+        DAOPersistentePizza daoPizza = new DAOPersistentePizza();
         Pizza pizza = daoPizza.pegarPeloNome(JFXComboBoxPizza.getSelectionModel().getSelectedItem());
         pizza.setSabor(JFXTextFieldSabor.getText());
         pizza.setPreco(Float.parseFloat(JFXTextFieldPreco.getText()));

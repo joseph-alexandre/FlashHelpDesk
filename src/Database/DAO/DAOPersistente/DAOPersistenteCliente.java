@@ -1,7 +1,7 @@
 package Database.DAO.DAOPersistente;
 
 import Database.Conexao.ConnectionFactory;
-import Database.DAO.DAOInterface;
+import Database.DAO.DAOPersistenteInterface;
 import Model.Cliente;
 
 import java.sql.Connection;
@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DAOCliente implements DAOInterface<Cliente> {
+public class DAOPersistenteCliente implements DAOPersistenteInterface<Cliente> {
 
 
     @Override

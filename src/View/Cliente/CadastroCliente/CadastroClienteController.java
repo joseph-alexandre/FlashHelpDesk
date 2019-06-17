@@ -1,9 +1,8 @@
 package View.Cliente.CadastroCliente;
 
-import Database.DAO.DAOPersistente.DAOCliente;
+import Database.DAO.DAOPersistente.DAOPersistenteCliente;
 import Model.Cliente;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,7 +11,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -56,7 +54,7 @@ public class CadastroClienteController {
     @FXML
     private void acaoBotaoCadastrar(ActionEvent event) throws IOException{
         Cliente cliente = new Cliente();
-        DAOCliente daoCliente = new DAOCliente();
+        DAOPersistenteCliente daoCliente = new DAOPersistenteCliente();
         cliente.setNome(JFXTextFieldNome.getText());
         cliente.setCpf(JFXTextFieldCPF.getText());
         cliente.setEndereco(JFXTextFieldEndereco.getText());

@@ -6,7 +6,7 @@ module PizzaDesk {
     requires java.sql;
 
     opens View.TelaInicial;
-    opens View.LoginFuncionario;
+    opens View.Login;
     opens View.Cliente.CadastroCliente;
     opens View.Cliente.ListarClientes;
     opens View.Cliente.RemocaoCliente;
@@ -15,4 +15,5 @@ module PizzaDesk {
     opens View.Pizza.ListarPizza;
     opens View.Pizza.AlterarPizza;
     opens View.Pizza.RemocaoPizza;
+    opens View.Pedido;
 }

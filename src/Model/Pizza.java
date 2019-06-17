@@ -1,8 +1,5 @@
 package Model;
 
-import Database.DAO.DAOPersistente.DAOCliente;
-import Database.DAO.DAOPersistente.DAOPizza;
-
 public class Pizza {
     private int id;
     private String sabor;
@@ -45,16 +42,4 @@ public class Pizza {
         return "Pizza de " + sabor;
     }
 
-    public static void main(String[] args) {
-
-        Pizza pizza = new Pizza();
-        pizza.setPreco(35f);
-        pizza.setSabor("Calabresa");
-        DAOPizza daoPizza = new DAOPizza();
-
-//        daoPizza.adicionar(pizza);
-//        System.out.println(daoPizza.listarTodos());
-//        Pizza calabresa = daoPizza.pegarPorId(1);
-//        System.out.println(calabresa.getPreco());
-    }
 }

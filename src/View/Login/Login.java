@@ -1,4 +1,4 @@
-package View.LoginFuncionario;
+package View.Login;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,11 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class LoginFuncionario extends Application {
+public class Login extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("LoginFuncionario.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         primaryStage.setTitle("LunchDesk");
         primaryStage.setScene(new Scene(root, 600, 500));
         primaryStage.show();

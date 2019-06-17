@@ -1,8 +1,7 @@
 package Database.DAO.DAOPersistente;
 
 import Database.Conexao.ConnectionFactory;
-import Database.DAO.DAOInterface;
-import Model.Cliente;
+import Database.DAO.DAOPersistenteInterface;
 import Model.Funcionario;
 
 import java.sql.Connection;
@@ -12,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DAOFuncionario implements DAOInterface<Funcionario>  {
+public class DAOPersistenteFuncionario implements DAOPersistenteInterface<Funcionario> {
 
     @Override
     public boolean adicionar(Funcionario funcionario) {
@@ -130,6 +129,32 @@ public class DAOFuncionario implements DAOInterface<Funcionario>  {
             ConnectionFactory.fecharConexao();
         }
         return funcionarios;
+    }
+
+    public Funcionario pegarPeloUsuario(String usuario){
+        Connection conexao = ConnectionFactory.obterConexao();
+        String sql = "SELECT nome, cpf, usuario, senha, cod_matricula FROM funcionario WHERE usuario = ?";
+        try {
+            PreparedStatement preparedStatement = conexao.prepareStatement(sql);
+            preparedStatement.setString(1, usuario);
+            preparedStatement.execute();
+            ResultSet rs = preparedStatement.getResultSet();
+            while (rs.next()) {
+                Funcionario funcionario = new Funcionario();
+                funcionario.setNome(rs.getString("nome"));
+                funcionario.setCpf(rs.getString("cpf"));
+                funcionario.setUsuario(rs.getString("usuario"));
+                funcionario.setSenha(rs.getString("senha"));
+                funcionario.setCod_matricula(rs.getString("cod_matricula"));
+                return funcionario;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            ConnectionFactory.fecharConexao();
+        }
+        return null;
     }
 
 }

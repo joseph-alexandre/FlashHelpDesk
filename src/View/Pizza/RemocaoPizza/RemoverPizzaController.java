@@ -1,7 +1,6 @@
 package View.Pizza.RemocaoPizza;
 
-import Database.DAO.DAOPersistente.DAOCliente;
-import Database.DAO.DAOPersistente.DAOPizza;
+import Database.DAO.DAOPersistente.DAOPersistentePizza;
 import Model.Pizza;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -62,7 +61,7 @@ public class RemoverPizzaController implements Initializable {
 
     @FXML
     private void carregarComboBox(){
-        DAOPizza daoPizza = new DAOPizza();
+        DAOPersistentePizza daoPizza = new DAOPersistentePizza();
         for (Pizza pizza : daoPizza.listarTodos()){
             JFXComboBoxPizza.getItems().addAll(pizza.getSabor());
         }
@@ -72,7 +71,7 @@ public class RemoverPizzaController implements Initializable {
 
     @FXML
     private void pegarPizza(){
-        DAOPizza daoPizza = new DAOPizza();
+        DAOPersistentePizza daoPizza = new DAOPersistentePizza();
         Pizza pizza = daoPizza.pegarPeloNome(String.valueOf(JFXComboBoxPizza.getSelectionModel().getSelectedItem()));
         JFXTextFieldSabor.setText(pizza.getSabor());
         JFXTextFieldPreco.setText(String.valueOf(pizza.getPreco()));
@@ -80,7 +79,7 @@ public class RemoverPizzaController implements Initializable {
 
     @FXML
     private void acaoBotaoRemoverPizza(){
-        DAOPizza daoPizza = new DAOPizza();
+        DAOPersistentePizza daoPizza = new DAOPersistentePizza();
         daoPizza.removerPeloNome(JFXTextFieldSabor.getText());
         limparCampoRemovido();
     }

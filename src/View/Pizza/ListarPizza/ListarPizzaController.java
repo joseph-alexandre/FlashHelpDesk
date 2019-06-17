@@ -1,7 +1,7 @@
 package View.Pizza.ListarPizza;
 
 import Database.Conexao.ConnectionFactory;
-import Database.DAO.DAOPersistente.DAOPizza;
+import Database.DAO.DAOPersistente.DAOPersistentePizza;
 import Util.TreeTableView.PizzaPojo;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableColumn;
@@ -57,7 +57,7 @@ public class ListarPizzaController implements Initializable {
 
     private ObservableList<PizzaPojo> observableList;
 
-    private DAOPizza daoPizza = new DAOPizza();
+    private DAOPersistentePizza daoPizza = new DAOPersistentePizza();
 
 
     @Override

@@ -2,7 +2,7 @@ package Database.DAO;
 
 import java.util.List;
 
-public interface DAOInterface<T>  {
+public interface DAOPersistenteInterface<T>  {
 
     public boolean adicionar(T thing);
 

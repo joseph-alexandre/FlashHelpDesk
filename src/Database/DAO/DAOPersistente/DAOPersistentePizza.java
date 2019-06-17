@@ -1,14 +1,14 @@
 package Database.DAO.DAOPersistente;
 
 import Database.Conexao.ConnectionFactory;
-import Database.DAO.DAOInterface;
+import Database.DAO.DAOPersistenteInterface;
 import Model.Pizza;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DAOPizza implements DAOInterface<Pizza> {
+public class DAOPersistentePizza implements DAOPersistenteInterface<Pizza> {
 
     @Override
     public boolean adicionar(Pizza pizza) {

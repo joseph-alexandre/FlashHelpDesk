@@ -1,6 +1,6 @@
 package View.Cliente.AlterarCliente;
 
-import Database.DAO.DAOPersistente.DAOCliente;
+import Database.DAO.DAOPersistente.DAOPersistenteCliente;
 import Model.Cliente;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -69,7 +69,7 @@ public class AlteracaoClienteController implements Initializable {
 
     @FXML
     private void carregarComboBox(){
-        DAOCliente daoCliente = new DAOCliente();
+        DAOPersistenteCliente daoCliente = new DAOPersistenteCliente();
 
         for (Cliente cliente : daoCliente.listarTodos()){
             JFXComboBoxCliente.getItems().addAll(cliente.getNome());
@@ -80,7 +80,7 @@ public class AlteracaoClienteController implements Initializable {
 
     @FXML
     private void pegarCliente(){
-        DAOCliente daoCliente = new DAOCliente();
+        DAOPersistenteCliente daoCliente = new DAOPersistenteCliente();
 
         Cliente cliente = daoCliente.pegarPeloNome( JFXComboBoxCliente.getSelectionModel().getSelectedItem());
         JFXTextFieldNome.setText(cliente.getNome());
@@ -91,7 +91,7 @@ public class AlteracaoClienteController implements Initializable {
 
     @FXML
     private void acaoBotaoAlterarCliente(){
-        DAOCliente daoCliente = new DAOCliente();
+        DAOPersistenteCliente daoCliente = new DAOPersistenteCliente();
         Cliente cliente = daoCliente.pegarPeloNome(JFXComboBoxCliente.getSelectionModel().getSelectedItem());
         cliente.setNome(JFXTextFieldNome.getText());
         cliente.setEndereco(JFXTextFieldEndereco.getText());

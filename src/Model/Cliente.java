@@ -1,7 +1,5 @@
 package Model;
 
-import Database.DAO.DAOPersistente.DAOCliente;
-
 public class Cliente extends Pessoa{
 
     private String endereco;
@@ -44,16 +42,4 @@ public class Cliente extends Pessoa{
         return "Cliente: \n" + super.toString() + "\nEndereço: " + endereco + "\nTelefone: " + telefone;
     }
 
-    public static void main(String[] args) {
-
-        Cliente cliente = new Cliente();
-        cliente.setNome("John Silvessdr");
-        cliente.setCpf("619.152.363-7sdds1");
-        cliente.setTelefone("(47)99902-dsds9982");
-        cliente.setEndereco("Rua Conquidsdssta");
-        DAOCliente daoCliente = new DAOCliente();
-        daoCliente.adicionar(cliente);
-        System.out.println(daoCliente.listarTodos());
-
-    }
 }

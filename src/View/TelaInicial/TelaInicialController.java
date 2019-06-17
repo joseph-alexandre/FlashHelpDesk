@@ -112,10 +112,11 @@ public class TelaInicialController {
 
 //    ---------------------------------------------------
 
+//  Botões de ação Pizza
     @FXML
     private void acaoBotaoCadastrarPizza(ActionEvent actionEvent) throws Exception {
-        Parent telaCadastroPizza = FXMLLoader.load(getClass().getResource("/View/Pizza/CadastroPizza/CadastroPizza.fxml"));
-        Scene telaCadastroPizzaScene = new Scene(telaCadastroPizza);
+        Parent telaCadastroPizzaParent = FXMLLoader.load(getClass().getResource("/View/Pizza/CadastroPizza/CadastroPizza.fxml"));
+        Scene telaCadastroPizzaScene = new Scene(telaCadastroPizzaParent);
         Stage tela = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         tela.setScene(telaCadastroPizzaScene);
         tela.show();
@@ -138,13 +139,34 @@ public class TelaInicialController {
         tela.setScene(telaAlterarPizzaScene);
         tela.show();
     }
-
     @FXML
     private void acaoBotaoRemoverPizza(ActionEvent actionEvent) throws Exception {
         Parent telaRemoverPizzaParent = FXMLLoader.load(getClass().getResource("/View/Pizza/RemocaoPizza/RemoverPizza.fxml"));
         Scene telaRemoverPizzaScene = new Scene(telaRemoverPizzaParent);
         Stage tela = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         tela.setScene(telaRemoverPizzaScene);
+        tela.show();
+    }
+    //   ---------------------------------------------------
+
+
+    @FXML
+    private void acaoBotaoCadastrarPedido(ActionEvent actionEvent) throws Exception{
+        Parent telaCadastrarPedidoParent = FXMLLoader.load(getClass().getResource("/View/Pedido/CadastroPedido.fxml"));
+        Scene telaCadastrarPedidoScene = new Scene(telaCadastrarPedidoParent);
+        Stage tela = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        tela.setScene(telaCadastrarPedidoScene);
+        tela.show();
+    }
+
+
+    @FXML
+    private void acaoBotaoSair(ActionEvent actionEvent) throws Exception{
+
+        Parent telaLoginParent = FXMLLoader.load(getClass().getResource("/View/Login/Login.fxml"));
+        Scene telaLoginScene = new Scene(telaLoginParent);
+        Stage tela = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        tela.setScene(telaLoginScene);
         tela.show();
     }
 

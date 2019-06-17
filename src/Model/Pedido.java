@@ -8,11 +8,7 @@ public class Pedido {
     private List<Pizza> pizzas;
     private float valorTotal;
     private Cliente cliente;
-
-    public Pedido(List<Pizza> pizzas, Cliente cliente) {
-        this.pizzas = pizzas;
-        this.cliente = cliente;
-    }
+    private StatusPagamento statusPagamento;
 
     public Pedido() {
     }
@@ -46,6 +42,18 @@ public class Pedido {
         this.cliente = cliente;
     }
 
+    public StatusPagamento getStatusPagamento() {
+        return statusPagamento;
+    }
+
+    public void setStatusPagamento(StatusPagamento statusPagamento) {
+        this.statusPagamento = statusPagamento;
+    }
+
+    public void setValorTotal(float valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
     @Override
     public String toString() {
         return "Pedido: " +
@@ -53,23 +61,5 @@ public class Pedido {
                 "\nValorTotal: " + getValorTotal() + "\nPedido efetuado por " + cliente.getNome() + " de CPF: " + cliente.getCpf();
     }
 
-    public static void main(String[] args) {
 
-
-        Cliente cliente = new Cliente();
-        cliente.setNome("John");
-        cliente.setCpf("23923230-322323");
-        cliente.setTelefone("843034340");
-        cliente.setEndereco("Rua das palmeiras");
-
-        ArrayList<Pizza> pizzas = new ArrayList<>();
-        pizzas.add(new Pizza("Frango", 35f));
-        pizzas.add(new Pizza("Calabresa", 35f));
-
-        Pedido pedido = new Pedido();
-        pedido.setCliente(cliente);
-        pedido.setPizzas(pizzas);
-        System.out.println(pedido);
-
-    }
 }

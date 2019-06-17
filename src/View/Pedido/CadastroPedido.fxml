@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="1106.0" style="-fx-background-color: #346dc9;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Pedido.CadastroPedidoController">
+   <children>
+      <Pane layoutX="354.0" layoutY="41.0" prefHeight="60.0" prefWidth="325.0" style="-fx-background-color: white;">
+         <children>
+            <Text fx:id="LabelCadastrarCliente1" fill="#346dc9" layoutX="50.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastrar Pedido" wrappingWidth="225.13671875">
+               <font>
+                  <Font name="Humnst777 Cn BT Bold" size="31.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="122.0" layoutY="144.0" prefHeight="60.0" prefWidth="325.0" style="-fx-background-color: white;">
+         <children>
+            <Text fx:id="LabelCadastrarCliente11" fill="#346dc9" layoutX="28.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preencha os campos" wrappingWidth="269.0">
+               <font>
+                  <Font name="Humnst777 Cn BT Bold" size="31.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="122.0" layoutY="219.0" prefHeight="248.0" prefWidth="325.0" style="-fx-background-color: white;">
+         <children>
+            <JFXButton fx:id="ButtonCadastrar" buttonType="RAISED" layoutX="21.0" layoutY="183.0" prefHeight="43.0" prefWidth="139.0" style="-fx-background-color: #2e7bf7;" text="Cadastrar" textFill="WHITE">
+               <font>
+                  <Font name="Book Antiqua Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="ButtonVoltar" buttonType="RAISED" layoutX="165.0" layoutY="183.0" onAction="#acaoBotaoVoltar" prefHeight="43.0" prefWidth="139.0" style="-fx-background-color: #2e7bf7;" text="Voltar" textFill="WHITE">
+               <font>
+                  <Font name="Book Antiqua Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXComboBox fx:id="JFXComboBoxCliente" labelFloat="true" layoutX="23.0" layoutY="35.0" onAction="#pegarCliente" prefHeight="25.0" prefWidth="279.0" promptText="Selecione o cliente que efetuou o pedido." />
+            <JFXTextField fx:id="JFXTextFieldNome" editable="false" labelFloat="true" layoutX="23.0" layoutY="86.0" promptText="Nome" />
+            <JFXTextField fx:id="JFXTextFieldTelefone" editable="false" labelFloat="true" layoutX="167.0" layoutY="86.0" prefHeight="25.0" prefWidth="135.0" promptText="Telefone" />
+            <JFXTextField fx:id="JFXTextFieldEndereco" editable="false" labelFloat="true" layoutX="23.0" layoutY="131.0" prefHeight="25.0" prefWidth="279.0" promptText="Endereço" />
+         </children>
+      </Pane>
+      <Pane layoutX="600.0" layoutY="219.0" prefHeight="248.0" prefWidth="325.0" style="-fx-background-color: white;">
+         <children>
+            <JFXTreeTableView fx:id="JFXTreeTableViewPizzas" layoutX="23.0" layoutY="59.0" prefHeight="175.0" prefWidth="279.0" />
+            <JFXComboBox fx:id="JFXComboBoxPizzas" labelFloat="true" layoutX="23.0" layoutY="22.0" prefHeight="25.0" prefWidth="279.0" promptText="Adicione a(s) pizza(s) no pedido." />
+         </children>
+      </Pane>
+      <Pane layoutX="600.0" layoutY="144.0" prefHeight="60.0" prefWidth="325.0" style="-fx-background-color: white;">
+         <children>
+            <Text fx:id="LabelTotalAPagar" fill="#346dc9" layoutX="114.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pizzas" wrappingWidth="187.0">
+               <font>
+                  <Font name="Humnst777 Cn BT Bold" size="31.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="600.0" layoutY="482.0" prefHeight="60.0" prefWidth="325.0" style="-fx-background-color: white;">
+         <children>
+            <Text fx:id="LabelTotalAPagar" fill="#346dc9" layoutX="28.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total a pagar:" wrappingWidth="187.0">
+               <font>
+                  <Font name="Humnst777 Cn BT Bold" size="31.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="941.0" layoutY="267.0" prefHeight="152.0" prefWidth="135.0" style="-fx-background-color: white;">
+         <children>
+            <JFXButton fx:id="ButtonAdicionar" buttonType="RAISED" layoutX="13.0" layoutY="23.0" prefHeight="43.0" prefWidth="110.0" style="-fx-background-color: #2e7bf7;" text="Adicionar" textFill="WHITE">
+               <font>
+                  <Font name="Book Antiqua Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="ButtonExcluir" buttonType="RAISED" layoutX="13.0" layoutY="90.0" prefHeight="43.0" prefWidth="110.0" style="-fx-background-color: #2e7bf7;" text="Excluir" textFill="WHITE">
+               <font>
+                  <Font name="Book Antiqua Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
