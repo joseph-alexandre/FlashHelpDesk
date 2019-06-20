@@ -12,9 +12,8 @@ public class TelaInicial extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("TelaInicial.fxml"));
-        primaryStage.setTitle("LunchDesk");
-        primaryStage.setScene(new Scene(root, 800, 500));
-        primaryStage.getIcons().add(new Image("file:resources/icons/burguer.png"));
+        primaryStage.setTitle("PizzaDesk");
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 

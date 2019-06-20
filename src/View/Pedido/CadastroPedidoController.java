@@ -4,12 +4,14 @@ import Database.DAO.DAOPersistente.DAOPersistenteCliente;
 import Database.DAO.DAOPersistente.DAOPersistentePizza;
 import Database.DAO.DAOVolatil.DAOPedido;
 import Model.Cliente;
+import Model.Pedido;
 import Model.Pizza;
 import Util.TreeTableView.PizzaPojo;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextField;
-import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.controls.*;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,9 +19,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeTableColumn;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
@@ -54,6 +59,12 @@ public class CadastroPedidoController implements Initializable {
     private JFXTreeTableView<PizzaPojo> JFXTreeTableViewPizzas;
 
     @FXML
+    private JFXTreeTableColumn<PizzaPojo, String> JFXTreeTableColumnSabor = new JFXTreeTableColumn<>("Sabor");
+
+    @FXML
+    private JFXTreeTableColumn<PizzaPojo, String> JFXTreeTableColumnPreco = new JFXTreeTableColumn<>("Preço");
+
+    @FXML
     private Text LabelTotalAPagar;
 
     @FXML
@@ -62,11 +73,17 @@ public class CadastroPedidoController implements Initializable {
     @FXML
     private JFXButton ButtonExcluir;
 
+    private ObservableList<PizzaPojo> observableList;
+
     private float totalAPagar;
 
     private List<Pizza> pizzas = new ArrayList<>();
 
     private DAOPedido daoPedido = new DAOPedido();
+
+    private Cliente cliente;
+
+    private DAOPersistentePizza daoPizza = new DAOPersistentePizza();
 
 
     @Override
@@ -97,7 +114,7 @@ public class CadastroPedidoController implements Initializable {
     @FXML
     private void pegarCliente() {
         DAOPersistenteCliente daoCliente = new DAOPersistenteCliente();
-        Cliente cliente = daoCliente.pegarPeloNome(JFXComboBoxCliente.getSelectionModel().getSelectedItem());
+        this.cliente = daoCliente.pegarPeloNome(JFXComboBoxCliente.getSelectionModel().getSelectedItem());
         JFXTextFieldNome.setText(cliente.getNome());
         JFXTextFieldEndereco.setText(cliente.getEndereco());
         JFXTextFieldTelefone.setText(cliente.getTelefone());
@@ -105,13 +122,45 @@ public class CadastroPedidoController implements Initializable {
 
     @FXML
     private void carregarComboBoxPizzas() {
-        DAOPersistentePizza daoPizza = new DAOPersistentePizza();
         for (Pizza pizza : daoPizza.listarTodos()) {
             JFXComboBoxPizzas.getItems().addAll(pizza.getSabor());
         }
-
-
     }
 
+//    @FXML
+//    private void acaoBotaoAdicionar(ActionEvent actionEvent){
+//        Pizza pizza = daoPizza.pegarPeloNome(JFXComboBoxPizzas.getSelectionModel().getSelectedItem());
+//        this.pizzas.add(pizza);
+//
+//    }
 
+//    private void carregarLista() {
+//
+//        JFXTreeTableColumnSabor.setPrefWidth(100);
+//        JFXTreeTableColumnSabor.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<PizzaPojo, String>, ObservableValue<String>>() {
+//            @Override
+//            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<PizzaPojo, String> pizzaPojo) {
+//                return pizzaPojo.getValue().getValue().saborProperty();
+//            }
+//        });
+//
+//        JFXTreeTableColumnPreco.setPrefWidth(100);
+//        JFXTreeTableColumnPreco.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<PizzaPojo, String>, ObservableValue<String>>() {
+//            @Override
+//            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<PizzaPojo, String> pizzaPojo) {
+//                return pizzaPojo.getValue().getValue().precoProperty();
+//            }
+//        });
+//
+//        observableList = FXCollections.observableArrayList();
+//        observableList.addAll(popularDados());
+//
+//        final TreeItem<PizzaPojo> root = new RecursiveTreeItem<PizzaPojo>(observableList, RecursiveTreeObject::getChildren);
+//        JFXTreeTableViewPizzas.getColumns().setAll(JFXTreeTableColumnSabor, JFXTreeTableColumnPreco);
+//        JFXTreeTableViewPizzas.setRoot(root);
+//        JFXTreeTableViewPizzas.setShowRoot(false);
+//
+//    }
+
+    //TODO: Classe/tela incompleta. Desenvolvimento encerrado.
 }

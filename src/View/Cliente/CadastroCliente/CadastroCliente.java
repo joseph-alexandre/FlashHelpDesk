@@ -11,9 +11,8 @@ public class CadastroCliente extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("CadastroCliente.fxml"));
-        primaryStage.setTitle("LunchDesk");
+        primaryStage.setTitle("PizzaDesk");
         primaryStage.setScene(new Scene(root));
-//        primaryStage.getIcons().add(new Image("file:resources/icons/burguer.png"));
         primaryStage.show();
     }
 

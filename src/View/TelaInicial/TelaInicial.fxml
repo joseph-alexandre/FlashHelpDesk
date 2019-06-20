@@ -111,7 +111,7 @@
             </Text>
          </children>
       </Pane>
-      <JFXButton fx:id="ButtonAdicionarPedido" layoutX="572.0" layoutY="324.0" onAction="#acaoBotaoCadastrarPedido" prefHeight="75.0" prefWidth="93.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Cadastrar" textFill="WHITE">
+      <JFXButton fx:id="ButtonAdicionarPedido" disable="true" layoutX="572.0" layoutY="324.0" onAction="#acaoBotaoCadastrarPedido" prefHeight="75.0" prefWidth="93.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Cadastrar" textFill="WHITE">
          <font>
             <Font name="Humnst777 Cn BT Bold" size="17.0" />
          </font>
@@ -119,7 +119,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton fx:id="ButtonExcluirPedido" layoutX="676.0" layoutY="324.0" prefHeight="75.0" prefWidth="93.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Excluir" textFill="WHITE">
+      <JFXButton fx:id="ButtonExcluirPedido" disable="true" layoutX="676.0" layoutY="324.0" prefHeight="75.0" prefWidth="93.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Excluir" textFill="WHITE">
          <font>
             <Font name="Humnst777 Cn BT Bold" size="17.0" />
          </font>
@@ -127,7 +127,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton fx:id="ButtonAlterarPedido" layoutX="572.0" layoutY="411.0" prefHeight="75.0" prefWidth="93.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Alterar" textFill="WHITE">
+      <JFXButton fx:id="ButtonAlterarPedido" disable="true" layoutX="572.0" layoutY="411.0" prefHeight="75.0" prefWidth="93.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Alterar" textFill="WHITE">
          <font>
             <Font name="Humnst777 Cn BT Bold" size="17.0" />
          </font>
@@ -135,7 +135,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton fx:id="ButtonListarPedido" layoutX="676.0" layoutY="411.0" prefHeight="75.0" prefWidth="93.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Listar" textFill="WHITE">
+      <JFXButton fx:id="ButtonListarPedido" disable="true" layoutX="676.0" layoutY="411.0" prefHeight="75.0" prefWidth="93.0" ripplerFill="#a4a4a4" style="-fx-background-color: #1653b7;" text="Listar" textFill="WHITE">
          <font>
             <Font name="Humnst777 Cn BT Bold" size="17.0" />
          </font>

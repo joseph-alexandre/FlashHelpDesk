@@ -16,4 +16,5 @@ module PizzaDesk {
     opens View.Pizza.AlterarPizza;
     opens View.Pizza.RemocaoPizza;
     opens View.Pedido;
+    opens Principal;
 }

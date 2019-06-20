@@ -16,7 +16,7 @@ public class LoginValidator {
             }
 
         } catch (NullPointerException e) {
-            System.out.println("LoginValidator incorreto.");
+            System.out.println("Login incorreto.");
         }
         return false;
     }
